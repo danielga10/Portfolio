@@ -1,0 +1,160 @@
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand mono" href="#top">DG.</a>
+    <nav class="nav__links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#estudios">Estudios</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#stack">Stack</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto" class="nav__cta">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__status mono">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        {{ disponibilidad }} · {{ ubicacion }}
+      </p>
+      <h1 class="hero__title">
+        {{ nombre }}<br>
+        <span class="hero__role">{{ titulo }}</span>
+      </h1>
+      <p class="hero__lede">
+        Conecto interfaces y servidores. Angular en el cliente, .NET y Spring Boot en el servidor —
+        y la infraestructura de red de fondo, gracias a mi paso por fibra óptica.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" [href]="enlaces.linkedin" target="_blank" rel="noopener">Ver LinkedIn</a>
+        <a class="btn btn--ghost" [href]="enlaces.github" target="_blank" rel="noopener">Ver GitHub</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <div class="photo-frame">
+        <span class="photo-frame__placeholder mono">FOTO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="section section--paper">
+    <div class="section__inner section__inner--split">
+      <h2 class="section__title">Sobre mí</h2>
+      <div class="section__body">
+        <p *ngFor="let parrafo of sobreMi">{{ parrafo }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTUDIOS -->
+  <section id="estudios" class="section">
+    <div class="section__inner">
+      <h2 class="section__title">Estudios</h2>
+      <ol class="timeline">
+        <li class="timeline__item" *ngFor="let item of estudios">
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="timeline__content">
+            <span class="timeline__periodo mono">{{ item.periodo }}</span>
+            <h3 class="timeline__titulo">{{ item.titulo }}</h3>
+            <p class="timeline__lugar">{{ item.centro }} · {{ item.lugar }}</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia" class="section section--paper">
+    <div class="section__inner">
+      <h2 class="section__title">Experiencia laboral</h2>
+      <ol class="timeline">
+        <li class="timeline__item" *ngFor="let item of experiencia">
+          <div class="timeline__marker" aria-hidden="true"></div>
+          <div class="timeline__content">
+            <span class="timeline__periodo mono">{{ item.periodo }}</span>
+            <h3 class="timeline__titulo">{{ item.puesto }}</h3>
+            <p class="timeline__lugar">{{ item.empresa }}</p>
+            <p class="timeline__desc">{{ item.descripcion }}</p>
+            <ul class="tag-list">
+              <li class="tag mono" *ngFor="let tech of item.stack">{{ tech }}</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- STACK TECNICO -->
+  <section id="stack" class="section">
+    <div class="section__inner">
+      <h2 class="section__title">Stack técnico</h2>
+      <p class="section__intro">De la interfaz a la base de datos.</p>
+      <div class="stack-layers">
+        <div class="stack-layer" *ngFor="let capa of stack; let i = index">
+          <span class="stack-layer__index mono">{{ i + 1 }}</span>
+          <span class="stack-layer__nombre">{{ capa.capa }}</span>
+          <ul class="tag-list">
+            <li class="tag mono" *ngFor="let tech of capa.tecnologias">{{ tech }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section section--paper">
+    <div class="section__inner">
+      <h2 class="section__title">Proyectos</h2>
+      <div class="projects">
+        <article class="project-card" *ngFor="let p of proyectos">
+          <div class="project-card__window">
+            <div class="project-card__chrome" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="project-card__preview mono">{{ p.nombre }}</div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__estado mono">{{ p.estado }}</span>
+            <h3>{{ p.nombre }}</h3>
+            <p>{{ p.descripcion }}</p>
+            <ul class="tag-list">
+              <li class="tag mono" *ngFor="let tech of p.stack">{{ tech }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section section--contact">
+    <div class="section__inner">
+      <h2 class="section__title">Hablemos</h2>
+      <p class="section__intro">
+        Busco mi próxima posición como programador en Sevilla. Si mi perfil encaja, escríbeme.
+      </p>
+      <div class="contact-links">
+        <a class="contact-link" [href]="enlaces.linkedin" target="_blank" rel="noopener">
+          <span class="contact-link__label mono">LinkedIn</span>
+          <span class="contact-link__value">daniel-garduño-amador</span>
+        </a>
+        <a class="contact-link" [href]="enlaces.github" target="_blank" rel="noopener">
+          <span class="contact-link__label mono">GitHub</span>
+          <span class="contact-link__value">danielga10</span>
+        </a>
+        <a class="contact-link" [href]="'mailto:' + enlaces.email">
+          <span class="contact-link__label mono">Email</span>
+          <span class="contact-link__value">{{ enlaces.email }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="mono">{{ nombre }} · {{ anioActual }}</p>
+</footer>
