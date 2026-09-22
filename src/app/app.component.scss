@@ -27,6 +27,7 @@
   align-items: center;
   font-size: 0.92rem;
   color: var(--ink-text-mute);
+  white-space: nowrap;
 }
 .nav__links a:hover { color: var(--ink-text); }
 .nav__cta {
@@ -37,8 +38,25 @@
 }
 .nav__cta:hover { border-color: var(--signal); }
 
-@media (max-width: 640px) {
-  .nav__links { gap: 0.9rem; font-size: 0.82rem; }
+@media (max-width: 768px) {
+  .nav__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+  .nav__links { 
+    width: 100%;
+    gap: 1.2rem; 
+    font-size: 0.88rem; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+  .nav__links::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ---------- HERO ---------- */
@@ -276,7 +294,7 @@
 .projects {
   margin-top: 2.2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 1.8rem;
 }
 .project-card {
