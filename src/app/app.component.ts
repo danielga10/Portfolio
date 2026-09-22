@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 interface EstudioItem {
   titulo: string;
@@ -36,7 +36,36 @@ interface Proyecto {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  isDarkMode = true;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        this.isDarkMode = false;
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        this.isDarkMode = true;
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.isDarkMode) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+  }
   readonly nombre = 'Daniel Garduño Amador';
   readonly titulo = 'Desarrollador Full Stack Junior';
   readonly ubicacion = 'Sevilla, España';

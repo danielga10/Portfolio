@@ -8,6 +8,10 @@
       <a href="#stack">Stack</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#contacto" class="nav__cta">Contacto</a>
+      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'">
+        <span *ngIf="isDarkMode" aria-hidden="true">☀️</span>
+        <span *ngIf="!isDarkMode" aria-hidden="true">🌙</span>
+      </button>
     </nav>
   </div>
 </header>
