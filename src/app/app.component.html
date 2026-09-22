@@ -1,6 +1,6 @@
 <header class="nav">
   <div class="nav__inner">
-    <a class="nav__brand mono" href="#top">DG.</a>
+    <a class="nav__brand mono text-gradient" href="#top">DG.</a>
     <nav class="nav__links">
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#estudios">Estudios</a>
@@ -20,7 +20,7 @@
         <span class="pulse-dot" aria-hidden="true"></span>
         {{ disponibilidad }} · {{ ubicacion }}
       </p>
-      <h1 class="hero__title">
+      <h1 class="hero__title text-gradient">
         {{ nombre }}<br>
         <span class="hero__role">{{ titulo }}</span>
       </h1>
@@ -41,7 +41,7 @@
   </section>
 
   <!-- SOBRE MI -->
-  <section id="sobre-mi" class="section section--paper">
+  <section id="sobre-mi" class="section">
     <div class="section__inner section__inner--split">
       <h2 class="section__title">Sobre mí</h2>
       <div class="section__body">
@@ -68,7 +68,7 @@
   </section>
 
   <!-- EXPERIENCIA -->
-  <section id="experiencia" class="section section--paper">
+  <section id="experiencia" class="section">
     <div class="section__inner">
       <h2 class="section__title">Experiencia laboral</h2>
       <ol class="timeline">
@@ -95,7 +95,7 @@
       <p class="section__intro">De la interfaz a la base de datos.</p>
       <div class="stack-layers">
         <div class="stack-layer" *ngFor="let capa of stack; let i = index">
-          <span class="stack-layer__index mono">{{ i + 1 }}</span>
+          <span class="stack-layer__index mono">0{{ i + 1 }}</span>
           <span class="stack-layer__nombre">{{ capa.capa }}</span>
           <ul class="tag-list">
             <li class="tag mono" *ngFor="let tech of capa.tecnologias">{{ tech }}</li>
@@ -106,7 +106,7 @@
   </section>
 
   <!-- PROYECTOS -->
-  <section id="proyectos" class="section section--paper">
+  <section id="proyectos" class="section">
     <div class="section__inner">
       <h2 class="section__title">Proyectos</h2>
       <div class="projects">
@@ -131,7 +131,7 @@
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="section section--contact">
+  <section id="contacto" class="section">
     <div class="section__inner">
       <h2 class="section__title">Hablemos</h2>
       <p class="section__intro">

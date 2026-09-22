@@ -1,20 +1,21 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Paleta — inspirada en fibra óptica y capas full stack */
-  --ink: #0B1220;
-  --ink-soft: #141D30;
-  --ink-line: rgba(255, 255, 255, 0.10);
-  --paper: #F3F1EC;
-  --paper-line: rgba(11, 18, 32, 0.10);
-  --signal: #3EE6C4;
-  --signal-dim: rgba(62, 230, 196, 0.14);
-  --amber: #FFB020;
-  --ink-text: #E9ECF3;
-  --ink-text-mute: #9AA4B8;
-  --paper-text: #14181F;
-  --paper-text-mute: #565F6E;
-
+  /* Premium Dark Palette */
+  --bg-deep: #06080d;
+  --bg-surface: #0d121c;
+  --bg-surface-elevated: #151c2b;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 240, 255, 0.3);
+  
+  --primary-glow: #00F0FF; /* Cyan Neon */
+  --secondary-glow: #7A00FF; /* Electric Purple */
+  --accent: #0A84FF; /* Electric Blue */
+  
+  --text-main: #F3F4F6;
+  --text-muted: #9CA3AF;
+  
   --font-display: 'Space Grotesk', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -26,29 +27,40 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: var(--ink);
-  color: var(--ink-text);
+  background: var(--bg-deep);
+  color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(122, 0, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
 
 :focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--primary-glow);
   outline-offset: 3px;
 }
 
 img { max-width: 100%; display: block; }
 
 .mono { font-family: var(--font-mono); }
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-glow), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
