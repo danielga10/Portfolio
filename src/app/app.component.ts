@@ -136,6 +136,7 @@ export class AppComponent implements OnInit {
       descripcion:
         'Sitio web para un concesionario especializado en coches americanos clásicos, de los años 70 a los 90. Catálogo de vehículos, fichas técnicas y diseño con estética retro americana.',
       stack: ['Angular', 'JavaScript'],
+      enlace: 'https://legendmotors.xyz',
       estado: 'Proyecto personal',
     },
   ];

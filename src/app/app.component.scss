@@ -192,6 +192,13 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.photo-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 .photo-frame__placeholder {
   color: var(--text-muted);
@@ -417,6 +424,16 @@
   line-height: 1.6;
   flex-grow: 1;
 }
+
+.project-card__link {
+  align-self: flex-start;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--primary-glow);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.project-card__link:hover { border-color: var(--primary-glow); }
 
 /* ---------- CONTACT ---------- */
 .contact-links {

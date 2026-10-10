@@ -39,7 +39,7 @@
     </div>
     <div class="hero__photo">
       <div class="photo-frame">
-        <span class="photo-frame__placeholder mono">FOTO</span>
+        <img class="photo-frame__img" src="assets/foto-perfil.jpeg" alt="Foto de Daniel Garduño Amador">
       </div>
     </div>
   </section>
@@ -128,6 +128,9 @@
             <ul class="tag-list">
               <li class="tag mono" *ngFor="let tech of p.stack">{{ tech }}</li>
             </ul>
+            <a *ngIf="p.enlace" class="project-card__link mono" [href]="p.enlace" target="_blank" rel="noopener">
+              Ver proyecto ↗
+            </a>
           </div>
         </article>
       </div>
