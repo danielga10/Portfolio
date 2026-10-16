@@ -35,6 +35,7 @@
       <div class="hero__actions">
         <a class="btn btn--primary" [href]="enlaces.linkedin" target="_blank" rel="noopener">Ver LinkedIn</a>
         <a class="btn btn--ghost" [href]="enlaces.github" target="_blank" rel="noopener">Ver GitHub</a>
+        <a class="btn btn--ghost" [href]="enlaces.cv" download="CV - Daniel Garduño Amador.pdf">Descargar CV ↓</a>
       </div>
     </div>
     <div class="hero__photo">
@@ -156,6 +157,10 @@
         <a class="contact-link" [href]="'mailto:' + enlaces.email">
           <span class="contact-link__label mono">Email</span>
           <span class="contact-link__value">{{ enlaces.email }}</span>
+        </a>
+        <a class="contact-link" [href]="enlaces.cv" download="CV - Daniel Garduño Amador.pdf">
+          <span class="contact-link__label mono">Currículum</span>
+          <span class="contact-link__value">Descargar CV (PDF) ↓</span>
         </a>
       </div>
     </div>

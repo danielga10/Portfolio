@@ -76,6 +76,7 @@ export class AppComponent implements OnInit {
     linkedin: 'https://www.linkedin.com/in/daniel-garduño-amador-649273293',
     github: 'https://github.com/danielga10',
     email: 'danielgarduno2003@gmail.com',
+    cv: 'assets/cv-daniel-garduno-amador.pdf',
   };
 
   readonly sobreMi = [
